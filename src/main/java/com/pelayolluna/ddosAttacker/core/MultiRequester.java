@@ -10,6 +10,10 @@ public class MultiRequester {
 
 	private static final AtomicInteger counter = new AtomicInteger();
 
+	public AtomicInteger getCounter() {
+		return counter;
+	}
+	
 	public void start(String url) {
 		for (int i = 1; i <= Runtime.getRuntime().availableProcessors(); i++) {
 			Thread thread = new Thread(new Runnable() {
@@ -53,10 +57,6 @@ public class MultiRequester {
 				e.printStackTrace();
 			}
 		}
-	}
-
-	public AtomicInteger getCounter() {
-		return counter;
 	}
 
 }
